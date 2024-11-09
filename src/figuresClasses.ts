@@ -13,12 +13,18 @@ export class Triangle implements Figure {
     public b: number,
     public c: number,
   ) {
-    if (a <= 0 || b <= 0 || c <= 0) {
+    if (this.a <= 0 || this.b <= 0 || this.c <= 0) {
       throw new Error('Error: length of one side of a triangle is <= 0');
     }
 
-    if (a >= b + c || b >= a + c || c >= b + a) {
-      throw new Error(`Error: sides ${a}, ${b} and ${c} can't form a triangle`);
+    if (
+      this.a >= this.b + this.c ||
+      this.b >= this.a + this.c ||
+      this.c >= this.b + this.a
+    ) {
+      throw new Error(
+        `Error: sides ${this.a}, ${this.b} and ${this.c} can't form a triangle`,
+      );
     }
   }
 
@@ -39,7 +45,7 @@ export class Circle implements Figure {
     public color: 'red' | 'green' | 'blue',
     public radius: number,
   ) {
-    if (radius <= 0) {
+    if (this.radius <= 0) {
       throw new Error('Error: radius must be greater than 0.');
     }
   }
@@ -59,9 +65,9 @@ export class Rectangle implements Figure {
     public width: number,
     public height: number,
   ) {
-    if (width <= 0 || height <= 0) {
+    if (this.width <= 0 || this.height <= 0) {
       throw new Error(
-        `Error: sides ${width} and ${height} can't form a rectangle`,
+        `Error: sides ${this.width} and ${this.height} can't form a rectangle`,
       );
     }
   }
